@@ -1,0 +1,38 @@
+
+{% extends 'layout.html' %}
+{% block content %}
+<form class="form" method="POST" enctype="multipart/form-data">
+    <div class="form__container">
+        {{ form.hidden_tag() }}
+        <div class="form__group">
+            {{ form.email.label(class_="form__label") }}
+            {{ form.email(class_="form__field") }}
+
+            {% for error in form.email.errors %}
+                <span class="form__error">{{ error }}</span>
+            {% endfor %}
+            </div>
+
+            <div class="form__group">
+                {{ form.password.label(class_="form__label") }}
+                {{ form.password(class_="form__field") }}
+
+                {% for error in form.password.errors %}
+                <span class="form__error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form__group">
+                {{ form.confirm_password.label(class_="form__label") }}
+                {{ form.confirm_password(class_="form__field") }}
+
+                {% for error in form.confirm_password.errors %}
+                <span class="form__error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                {{ form.submit(class_="form__button") }}
+
+            </div>  
+</form>
+{% endblock %}

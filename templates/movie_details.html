@@ -1,0 +1,119 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="movied">
+        <div class="movie__imgd">
+            <img src="data:image/png;base64,{{ movie.coverpage }}" alt="coverpage" class="movie__img__selfd">
+        </div>
+        <div class="movie__infod">
+            <div class="maind">
+                <h1 class="movie__titled">{{ movie.title }}</h1>
+            <p class="movie__smalld">Director:   <span class="movie__directord">{{ movie.director }}</span></p>
+            </div>
+            <div class="column">
+                <small class="smalld">Release date: <span class="small__textd">{{ movie.year }}</span> </small>
+                <small class="smalld">Rating:
+                    {% for i in range(5) %}
+                        
+                    <span class="small__textd">
+                        <a href="{{ url_for('rate', _id=movie._id, rating=i+1)}}" class="star__link ">
+                            <i class="fa-regular fa-star star__self {{'fa-solid fa-star star__self' if movie.rating > i}}" style="color:goldenrod;"></i>
+                        </a>
+                    </span>
+                    {% endfor %}
+                </small>
+            </div>
+            <div class="synopsis__div">
+                <h2 class="synopsis__title">Synopsis</h2>
+            </div>
+            <div class="synopsis__div__content">
+                {{ movie.synopsis }}
+            </div>
+            <div clas="cast">
+                <small class="smallcast">Main cast:<small id="cast">{{ movie.cast }}</small></small>
+            </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var textoCompleto = document.getElementById("cast");
+        var textoCompletoOriginal = textoCompleto.textContent;
+        var limiteCaracteres = 150; // Limite de caracteres
+
+        if (textoCompletoOriginal.length > limiteCaracteres) {
+            var textoLimitado = textoCompletoOriginal.slice(0, limiteCaracteres);
+            textoCompleto.textContent = textoLimitado + "...";
+            textoCompleto.innerHTML += "<span id='see-more' style='cursor: pointer; text-decoration: none; color: red;'> See more</span>";
+
+            var verMaisLink = document.getElementById("see-more");
+            var expandido = false;
+
+            verMaisLink.addEventListener("click", function() {
+                if (expandido) {
+                    textoCompleto.textContent = textoLimitado + "...";
+                    verMaisLink.textContent = " Ver mais";
+                } else {
+                    textoCompleto.textContent = textoCompletoOriginal;
+                    verMaisLink.textContent = " Ver menos";
+                }
+                expandido = !expandido;
+            });
+        }
+    });
+</script>
+        </div>
+    </div>
+    <div class="trailertext">
+        <h1>Check the trailer bellow</h1>
+    </div>
+
+    <script>
+        // Função para ajustar o tamanho do vídeo do YouTube
+        function ajustarTamanhoDoVideo() {
+            var embeds = videoDiv.getElementsByTagName("iframe");
+
+            for (var i = 0; i < embeds.length; i++) {
+                var embed = embeds[i];
+                if (embed.src.includes("youtube.com") || embed.src.includes("youtu.be")) {
+                    embed.width = 640; // Definindo a largura desejada
+                    embed.height = 480; // Definindo a altura desejada
+                }
+            }
+        }
+
+        // Chama a função quando a página é carregada
+        window.onload = function() {
+            ajustarTamanhoDoVideo();
+        };
+    </script>
+
+    <div class="youtubevideo">
+    <iframe width="640" height="480"
+        src="{{ movie.embed }}"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
+    </div>
+    <form class="form" action="{{ url_for('comments', _id=movie._id)}}" method="POST">
+        {{ form2.hidden_tag() }}
+        {{ form2.comment.label(class_="form__label1") }}
+        {{ form2.comment(class_="comment__textarea") }}
+        {{ form2.submit(class_="form__button1") }}
+    </form>
+    <div class="comments__div">
+        <h1 class="comments__title">Comments</h1>
+        {% if comments %}
+        {% for comment in comments %}
+        <div class="comments__text-div">
+            <span class="comment__self">Comment: {{ comment.comment }}</span>
+            <small class="comment__small comment__self">By: {{ comment.nickname }}</small>
+
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="comments__text-div">
+            <span class="comment__self">Theres nothing here...</span>
+
+        </div>
+
+        {% endif %}
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form class="form" method="POST" enctype="multipart/form-data">
+    <div class="form__container">
+        {{ form.hidden_tag() }}
+        <div class="form__group">
+            {{ form.title.label(class_="form__label") }}
+            {{ form.title(class_="form__field") }}
+
+            {% for error in form.title.errors %}
+                <span class="form__error">{{ error }}</span>
+            {% endfor %}
+            </div>
+
+            <div class="form__group">
+                {{ form.director.label(class_="form__label") }}
+                {{ form.director(class_="form__field") }}
+
+                {% for error in form.director.errors %}
+                <span class="form__error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form__group">
+                {{ form.year.label(class_="form__label") }}
+                {{ form.year(class_="form__field") }}
+
+                {% for error in form.year.errors %}
+                <span class="form__error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form__group">
+            {{ form.genre.label(class_="form__label") }}
+            {{ form.genre(class_="form__field") }}
+
+            {% for error in form.genre.errors %}
+                <span class="form__error">{{ error }}</span>
+            {% endfor %}
+            </div>
+
+            <div class="form__group">
+            {{ form.synopsis.label(class_="form__label") }}
+            {{ form.synopsis(class_="form__field") }}
+
+            {% for error in form.synopsis.errors %}
+                <span class="form__error">{{ error }}</span>
+            {% endfor %}
+            </div>
+
+            <div class="form__group">
+            {{ form.embed.label(class_="form__label") }}
+            {{ form.embed(class_="form__field") }}
+
+            {% for error in form.embed.errors %}
+                <span class="form__error">{{ error }}</span>
+            {% endfor %}
+            </div>
+
+            <div class="form__group">
+            {{ form.duration.label(class_="form__label") }}
+            {{ form.duration(class_="form__field") }}
+
+            {% for error in form.duration.errors %}
+                <span class="form__error">{{ error }}</span>
+            {% endfor %}
+            </div>
+
+            <div class="form__group">
+            {{ form.coverpage.label(class_="form__label") }}
+            {{ form.coverpage(class_="form__field") }}
+
+            {% for error in form.coverpage.errors %}
+                <span class="form__error">{{ error }}</span>
+            {% endfor %}
+            </div>
+            <div class="form__group">
+            {{ form.cast.label(class_="form__label") }}
+            {{ form.cast(class_="form__field") }}
+
+            {% for error in form.cast.errors %}
+                <span class="form__error">{{ error }}</span>
+            {% endfor %}
+            </div>
+            <div>
+                {{ form.submit(class_="form__button") }}
+
+        </div>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% if movies %}
+        {% for movie in movies %}
+
+            <div class="movie">
+                <div class="movie__img">
+                <img src="data:image/png;base64,{{ movie.coverpage }}" alt="coverpage" class="movie__img__self">
+            </div>
+                <div class="movie__info">
+                <h1 class="movie__title">{{ movie.title }}</h1>
+                <p class="movie__small">Director:   <span class="movie__director">{{ movie.director }}</span></p>
+                <p class="movie__small">Release date: <span class="movie__year">{{ movie.year }}</span></p>
+                <p class="movie__smal"><a class="movie__details" href="{{ url_for('movie_details', _id=movie._id) }}">More</a></p>
+                 <small class="small">{{ movie.genre }}</small><small class="small">{{ movie.duration }}min</small>
+                <p class="movie__small-sinopse" id="sinopse_{{ movie._id }}">{{ movie.synopsis }}</p>
+            </div>
+            </div>
+            <script>
+                var divSinopse = document.getElementById("sinopse_{{ movie._id }}");
+                var limiteCaracteres = 104;
+                var textoCompleto = divSinopse.innerHTML;
+                var textoLimitado = textoCompleto.slice(0, limiteCaracteres);
+                divSinopse.innerHTML = textoLimitado + "...";
+            </script>
+        {% endfor %}
+    {% else %}
+        <p class="movies__empty">
+            You haven't added any movies yet. <a class="empty__link" href="{{ url_for('add_movie') }}">Add now!</a>
+        </p>
+    {% endif %}
+    <a class="add__link" href="{{ url_for('add_movie') }}">
+        <span class="plus">+</span>
+    </a>
+{% endblock %}
