@@ -375,9 +375,10 @@ body{
 .trailertext{
     margin: 0 auto;
     margin-top:5rem;
-    color:red;
+    color:white;
     text-align:center;
-    background-color:rgb(46, 1, 11);
+    background-color: black;
+    border: 2px solid white;
     border-radius:2rem;
     padding:2rem;
 }
