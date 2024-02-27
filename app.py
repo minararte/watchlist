@@ -20,7 +20,6 @@ ALLOWED_EXTENSIONS = {'jpg', 'png', 'jpeg', 'webp', 'webm'}
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 client = MongoClient (os.getenv("MONGODB_URI"))
 app.db = client.movies
 
