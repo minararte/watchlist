@@ -134,7 +134,6 @@ def add_movie():
                  )
         )
         current_app.db.movies.insert_one((movie.__dict__))
-        os.remove(os.path.join(app.config["UPLOAD_FOLDER"], filename))
         return redirect(url_for('index'))
     return render_template('new_movie.html', title="Add Movie", form=form, email=session.get('email'))
 
