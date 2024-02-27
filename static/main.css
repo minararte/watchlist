@@ -375,13 +375,13 @@ body{
 .trailertext{
     margin: 0 auto;
     margin-top:5rem;
-    color:white;
+    color:black;
     text-align:center;
-    background-color: black;
-    border: 2px solid white;
+    background-color:rgb(240, 208, 166);
+    border: 1px solid black;
     border-radius:2rem;
     padding:2rem;
-    box-shadow: 0.45rem 0.45rem 2px -0.1rem rgb(177, 23, 56);
+    box-shadow: 5px 5px 1px 1px rgb(187, 157, 122);
 }
 
 
@@ -569,4 +569,15 @@ body{
         border: 1px solid rgb(255, 255, 255);
         box-shadow: 0.45rem 0.45rem 2px -0.1rem rgb(177, 23, 56);
     }
+    .trailertext{
+    margin: 0 auto;
+    margin-top:5rem;
+    color:white;
+    text-align:center;
+    background-color:black;
+    border-radius:2rem;
+    padding:2rem;
+    border: 2px solid white;
+    box-shadow: 0.45rem 0.45rem 2px -0.1rem rgb(177, 23, 56);
+}
 }
