@@ -116,6 +116,7 @@ def add_movie():
         img = form.coverpage.data
         img = form.coverpage.data
         if img and allowed_file(img.filename):
+            filename = secure_filename(img.filename)
             coverpage_bytes = img.read()
             coverpage_bytes_encoded = base64.b64encode(coverpage_bytes).decode('utf-8')
             movie = (movieObject
