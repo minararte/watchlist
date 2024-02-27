@@ -16,8 +16,6 @@ import os
 dotenv.load_dotenv()
 
 
-
-UPLOAD_FOLDER = "static/movie__img"
 ALLOWED_EXTENSIONS = {'jpg', 'png', 'jpeg', 'webp', 'webm'}
 
 app = Flask(__name__)
