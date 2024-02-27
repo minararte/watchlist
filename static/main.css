@@ -22,6 +22,7 @@ body{
     margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     resize:none;
     font-family:inherit;
+    border-radius:0.3rem;
 }
 .comments__div{
     align-items: center;
