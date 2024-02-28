@@ -375,13 +375,13 @@ body{
 .trailertext{
     margin: 0 auto;
     margin-top:5rem;
-    color:black;
+    color:white;
     text-align:center;
-    background-color:rgb(240, 208, 166);
-    border: 1px solid black;
+    background-color:black;
     border-radius:2rem;
     padding:2rem;
-    box-shadow: 5px 5px 1px 1px rgb(187, 157, 122);
+    border: 2px solid white;
+    box-shadow: 0.45rem 0.45rem 2px -0.1rem rgb(177, 23, 56);
 }
 
 
@@ -569,15 +569,131 @@ body{
         border: 1px solid rgb(255, 255, 255);
         box-shadow: 0.45rem 0.45rem 2px -0.1rem rgb(177, 23, 56);
     }
-    .trailertext{
-    margin: 0 auto;
-    margin-top:5rem;
-    color:white;
-    text-align:center;
-    background-color:black;
-    border-radius:2rem;
-    padding:2rem;
-    border: 2px solid white;
-    box-shadow: 0.45rem 0.45rem 2px -0.1rem rgb(177, 23, 56);
+    @media (max-width: 414px){
+    .comments__text-div {
+        background-color: rgb(44, 43, 43);
+        border-radius: 1rem;
+        width: 18rem;
+        height: 10rem;
+        padding: 0.5rem;
+        margin-right: 1rem;
+        margin-left: 0.4rem;
+        margin-bottom: 1rem;
+        border: 1px solid rgb(255, 255, 255);
+        box-shadow: 0.45rem 0.45rem 2px -0.1rem rgb(177, 23, 56);
+    }
 }
+
+@media (max-width: 414px){
+    .movie{
+        max-width:350px;
+    
+    }
+    .movie__img__self{
+        max-width:7.8rem;
+        max-height:13rem;
+        min-width:7.8rem;
+        min-height:13rem;
+        border-radius:1rem;
+    }
+    .movie__img{
+        max-width:7.8rem;
+        max-height:13rem;
+        min-width:7.8rem;
+        min-height:13rem;
+        border-radius:1rem;
+        margin-right:1.5rem;
+        }
+    .add__link{
+        display: flex;
+        position: absolute;
+        bottom: 1.4rem;
+        right: 2rem;
+        padding-top: 0;
+        border: 3px solid rgb(177, 23, 56);
+        height: 4rem;
+        width: 4rem;
+        color: black;
+        border-radius: 30%;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 3rem;
+    }
+    .movie__small, .movie__director, .movie__year, .movie__details, .small{
+        font-size:0.7rem;
+    }
+    .movie__small-sinopse{
+        font-size:0.7rem;
+        width:12rem;
+    }
+    .movie__title{
+        font-size:1em;
+    }
+    .movied{
+        flex-direction:column;
+        width:20rem;
+    }
+    .movie__imgd{
+        max-width:200px;
+        align-items: center;
+        margin: 0 auto;
+    
+    }
+    .smalld:not(:last-of-type){
+        margin-right:7.3rem;
+    }
+    .trailertext{
+        width:17rem;
+    }
+    .movie__img__selfd{
+        max-width:12.5rem;
+        max-height:18.75rem;
+        min-width:12.5rem;
+        min-height:18.75rem;
+        border-radius:1rem;
+    }
+    .movie__titled{
+        font-size:1em;
+    }
+    .movie__smalld{
+        font-size:0.7rem;
+    }
+    .smalld{
+        font-size:0.7rem;
+    }
+    .star__self{
+        height:0.9em;
+        width:0.9em;
+    }
+    .synopsis__title{
+        font-size:1em;
+    }
+    .synopsis__div__content{
+        font-size:0.7rem;
+    }
+    iframe{
+        width:320px;
+        height:240px;
+    }
+    .form{
+        width:20rem;
+    }
+    .comment__textarea{
+        width:18rem;
+    }
+    .comments__div{
+        width:20rem;
+    }
+    .comments__text-div{
+        width:18rem;
+        margin-left:0.5rem;
+    }
+    .movie__infod{
+        width:20rem;
+        margin-right:0.2rem;
+    }
+
+
+    }
 }
